@@ -1,0 +1,64 @@
+<body>
+    <h1>
+      THE TITLE OF YOUR WEBPAGE
+    </h1>
+    <div id="container"></div>
+   
+   <script>
+function computerPlay (){
+    var seed= Math.floor(Math.random()*3)
+   switch(seed){
+       case 0:
+           return "paper"
+           break;
+        case 1:
+            return "scissors"
+            break;
+        case 2:
+            return "rock"
+        default:
+
+   }
+
+}
+
+function humanPlay(){
+    var result = window.prompt("type rock paper or scissors")
+    return result.toLowerCase()
+}
+
+
+
+function round(){
+    var humanP = humanPlay()
+var computerP = computerPlay()
+    if (!((humanP== "paper") ||(humanP == "scissors") || (humanP =="rock")))
+    {return "please type rock, paper or scissors"}
+    else if (humanP == computerP){
+
+        return "tie"
+    }
+    else if ((humanP == "paper" && computerP == "rock") || (humanP == "rock" && computerP == "scissors")
+    || (humanP == "scissors" && computerP == "paper") )
+    {
+        return "win"
+    }
+    else{return "loss"}
+
+}
+
+function game(a){
+var myscore =0
+var compscore = 0
+for (var i=0; i<a; i++){
+   let result2 = round()
+if (result2 =="win"){  myscore++}
+else if (result2 == "loss"){ compscore++}
+}
+if ( myscore < compscore){return "you lost"}
+else if (myscore > compscore ) {return " you won"}
+else {return "its a tie"}
+}
+game()
+    </script>
+  </body>
