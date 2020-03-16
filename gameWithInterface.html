@@ -1,0 +1,139 @@
+<body>
+    <h1>
+      THE TITLE OF YOUR WEBPAGE
+    </h1>
+    <div id="container"></div>
+   <button id="rock"> rock</button>
+   <button id="paper"> paper</button>
+   <button id="scissors"> scissors</button>
+   <div id="here"></div>
+   <div id="score">
+   <p id="myScore">  My score </p>
+   <p id="computerScore">Computer Score</p>
+   <p id="lastRound">Who won last round</p>
+   <p id="winner"></p>
+
+
+
+   </div>
+
+   <script>
+       let resRound= ""
+        let humanP =""
+        var myscore =0;
+        var compscore = 0;
+       let brock = document.getElementById("rock");
+       let bpaper = document.getElementById("paper");
+       let bscissors = document.getElementById("scissors");
+       let container = document.getElementById("container");
+       let myscorea = document.getElementById("myScore");
+       let computerScorea =document.getElementById("computerScore");
+       let lastRound = document.getElementById("lastRound");
+       let winner = document.getElementById("winner");
+
+       const div = document.createElement("div");
+
+       brock.addEventListener("click", function (){
+           humanP =  "rock";
+           let result2 =round();
+           if (result2 =="win"){  myscore++;}
+                else if (result2 == "loss"){ compscore++;}
+            lastRound.textContent = result2;
+            myscorea.textContent = myscore;
+            computerScorea.textContent = compscore;
+            if (compscore== 5){window.alert("computer won you loose!");
+            window.location.reload();}
+
+            else if ( myscore == 5){window.alert("you won!");
+            window.location.reload();}
+        
+       
+           
+       })
+       bpaper.addEventListener("click", function(){
+           humanP = "paper";
+           let result2 =round();
+           if (result2 =="win"){  myscore++;}
+                else if (result2 == "loss"){ compscore++;}
+            lastRound.textContent = result2;
+            myscorea.textContent = myscore;
+            computerScorea.textContent = compscore;
+            if (compscore== 5){window.alert("computer won you loose!");
+            window.location.reload();}
+
+            else if ( myscore == 5){window.alert("you won!");
+            window.location.reload();}
+       } )
+       bscissors.addEventListener("click", function(){
+           humanP = "scissors";
+           let result2 =round();
+           if (result2 =="win"){  myscore++;}
+                else if (result2 == "loss"){ compscore++;}
+            lastRound.textContent = result2;
+            myscorea.textContent = myscore;
+            computerScorea.textContent = compscore;
+            if (compscore== 5){window.alert("computer won you loose!");
+            window.location.reload();}
+
+            else if ( myscore == 5){window.alert("you won!");
+            window.location.reload();}
+       })
+
+function computerPlay (){
+    var seed= Math.floor(Math.random()*3);
+   switch(seed){
+       case 0:
+           return "paper"
+           break;
+        case 1:
+            return "scissors"
+            break;
+        case 2:
+            return "rock"
+        default:
+
+   }
+
+}
+
+//old version to select
+/*function humanPlay(){
+    var result = window.prompt("type rock paper or scissors");
+    return result.toLowerCase();
+}
+*/
+
+
+function round(){
+   
+var computerP = computerPlay();
+   // if (!((humanP== "paper") ||(humanP == "scissors") || (humanP =="rock")))
+   // {return "please type rock, paper or scissors";}
+     if (humanP == computerP){
+
+        return  resRound = "tie";
+    }
+    else if ((humanP == "paper" && computerP == "rock") || (humanP == "rock" && computerP == "scissors") || (humanP == "scissors" && computerP == "paper") )
+    {
+        return  resRound = "win";
+    }
+    else{return  resRound = "loss";}
+
+}
+//the 5 rounds
+/*
+function game(){
+var myscore =0;
+var compscore = 0;
+for (var i=0; i<a; i++){
+   let result2 = round();
+if (result2 =="win"){  myscore++;}
+else if (result2 == "loss"){ compscore++;}
+}
+if ( myscore < compscore){return "you lost";}
+else if (myscore > compscore ) {return " you won";}
+else {return "its a tie";}
+}
+*/
+    </script>
+  </body>
